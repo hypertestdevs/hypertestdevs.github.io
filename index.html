@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <br>
+    <div
+    style="border: 1px solid rgb(219, 217, 217); width: 70%; margin: 0 auto"
+  >
+  <h2 style="text-align: center;">Cost Estimator</h2>
+  <h5 style="margin-left:10px;"><strong>No. of Active hours in a month</strong>
+     <input
+    class="form-control"
+    type="number"
+    id="activeHours"
+    value="720"
+    required
+  /> </h5>
+<br>
+    <div class="masterNodeParent">
+      <div class="maserNodeDIV">
+        <h3>HyperTest Master Node</h3>
+        <br />
+        <div class="masterNodeDivChild">
+          <div>
+            <div class="instanceTypesDiv">
+              <p>Select Instance Type :</p>
+            </div>
+            <div class="parentForCostsDivs">
+              <div id="cost">Cost</div>
+              <div id="masterNodeCost"></div>
+            </div>
+          </div>
+          <div>
+            <div class="select">
+              <select id="masterNode">
+                <option value="select">Select</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div style="display: flex; padding: 10px">
+            <div>
+              <div class="instanceTypesDiv">
+                <p>Select Storage Class :</p>
+              </div>
+              <div class="parentForCostsDivs">  
+                <div id="cost">Cost</div>
+                <div class="masterNodeCost" id="storageClassCost"></div>
+              </div>
+            </div>
+            <div>
+              <div class="select">
+                <select id="storageClass">
+                  <option value="0.0912">EBS GP3</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          padding: 10px;
+          margin-left: 100px;
+        "
+      >
+        <h3>Storage</h3>
+        <br />
+        <div>
+          <div class="mb-2">
+            <label class="form-label">Node Disk:</label>
+            <input
+              class="form-control"
+              type="number"
+              id="nodeDisk"
+              name="node disk"
+              value="20"
+              required
+            />
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Database Storage for Central:</label>
+            <input class="form-control" type="number" id="dbStorageForCT" value="5" required/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+
+
+    <div>
+      <div class="workerNodeParent">
+        <div class="workerNodeDIV">
+          <h3>HyperTest Worker Node</h3>
+          <br />
+          <div class="workerNodeDivChild">
+            <div>
+              <div class="instanceTypesDiv">
+                <p>Select Instance Type :</p>
+              </div>
+              <div class="parentForWorkerNodeCostsDivs">
+                <div id="workerNodeCostTitle">Cost</div>
+                <div id="workerNodeCost"></div>
+              </div>
+            </div>
+            <div>
+              <div class="select">
+                <select id="workerNode">
+                  <option selected>select</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <div
+          style="
+            padding: 10px;
+            margin-left: 100px;
+          "
+        >
+          <h3>Storage</h3>
+          <br />
+          <div>
+            <div class="mb-2">
+              <label class="form-label">Node Disk (GB):</label>
+              <input
+                class="form-control"
+                type="number"
+                id="nodeDiskInGB"
+                name="node disk"
+                value="20"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Database Storage per microservice:</label>
+              <input class="form-control" type="number" id="dbStoragePerMicrSvc" value="10" min="5" max = "30" required/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="border: 1px solid rgb(219, 217, 217);">
+    <div class="master_and_worker_node_cost_div">
+      <div class="masterNodeCostDiv">
+        <div class="masterNodeTotalCostTitle">Master Node</div>
+        <div id="masterNodeTotalCostValue"></div>
+      </div>
+      <div class="workerNodeCostDiv">
+        <div class="workerNodeTotalCostTitle">Worker Node</div>
+        <div id="workerNodeTotalCostValue"></div>
+      </div>
+    </div>
+    <div>
+      <div class="servicesConfigDiv">
+        <div style="padding:10px;width:48%;">
+          <div class="mb-2">
+            <label class="form-label">Enter number of Services:</label>
+            <input class="form-control" type="number" id="noOfSVCs" value="10" required/>
+          </div>
+          <div style="display: flex;padding:10px;">
+            <div>Additional Storage cost for DBs</div>
+            <div id="additionalStorageCostForDbs"></div>
+          </div>
+          <div style="display: flex;padding:10px;">
+            <div>No. of worker nodes required</div>
+            <div id="noOfWorkerNodesRq"></div>
+          </div>
+          <div style="padding:10px;">
+            <div>Do you already use a EKS cluster ?</div>
+            <div id="IfEKSCluster"> 
+              <div>
+                <div class="selecotr-item">
+                    <input type="radio" id="radioo3" name="selectorr" class="selector-item_radio" checked>
+                    <label for="radioo3" class="selector-item_label">Yes</label>&nbsp; &nbsp; &nbsp; 
+                    <input type="radio" id="radioo4" name="selectorr" class="selector-item_radio">
+                    <label for="radioo4" class="selector-item_label">No </label>
+                </div>
+              </div>
+              <div id="EKSPrice">
+                  0.0000
+              </div>
+    
+            
+            </div>
+          </div>
+          <div style="padding:10px;">
+            <div>Do you have an Existing Load Balancer ?  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+            <div id="IfExstingLoadBalancer">
+              
+              <div>
+                    <div class="selecotr-item">
+                        <input type="radio" id="radio1" name="selector" class="selector-item_radio" checked>
+                        <label for="radio1" class="selector-item_label">Yes</label>&nbsp; &nbsp; &nbsp; 
+                        <input type="radio" id="radio2" name="selector" class="selector-item_radio">
+                        <label for="radio2" class="selector-item_label">No </label>
+                    </div>
+                  </div>
+                  <div id="ELBPrice">
+                      0.0000
+                  </div>
+        
+                
+          
+             </div>
+          </div>
+          <br />
+          <div style="padding:10px;">
+            <div>Additional Cost</div>
+            <div id="additionalCostValue">0.0000</div>
+          </div>
+          <div style="display: flex;padding:10px;">
+            <div>Per Service Cost</div>
+            <div  id="serviceCost"></div>
+          </div>
+          <div style="display: flex;padding:10px;">
+              <div>Total Cost</div>
+              <div id="totalCost"></div>
+            
+    
+          </div>
+        </div>
+        <div>
+          <div class="servicesPerNodeDiv">
+            <div class="mb-2">
+              <label class="form-label"
+                >No. of services per node recommended:</label
+              >
+              <input class="form-control" type="number" id="noOfSVCsReq" value="9" required/>
+            </div>
+            <div class="mb-2">
+              <label class="form-label">actual :</label>
+              <input class="form-control" type="number" id="actual" value = "12" required/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+    
+  </body>
+</html>
+<script type="module">
+  import {
+    getData,
+    appendMasterNodeData,
+    appendWorkerNodeData,
+    costCalculator,
+  } from './data.js';
+  const masterNode = document.getElementById('masterNode');
+const workerNode = document.getElementById('workerNode');
+const costValue = document.getElementById('masterNodeCost');
+const masterNodePriceEl = document.getElementById('masterNodeTotalCostValue');
+const nodeDiskEl = document.getElementById('nodeDisk');
+const nodeDiskInGBEl = document.getElementById('nodeDiskInGB');
+const workerNodeCost = document.getElementById('workerNodeCost');
+const workerNodePriceEl = document.getElementById('workerNodeTotalCostValue');
+const storageClass = document.getElementById('storageClass');
+const storageClassCost = document.getElementById('storageClassCost');
+const additionalStorageCost = document.getElementById('additionalStorageCostForDbs');
+const dbStorageForCT = document.getElementById('dbStorageForCT');
+const dbStoragePerMicrSvc = document.getElementById('dbStoragePerMicrSvc');
+const noOfSvcs = document.getElementById('noOfSVCsReq');
+const noOfSVC = document.getElementById('noOfSVCs');
+const noOfWorkerNodesRq = document.getElementById('noOfWorkerNodesRq');
+const actual = document.getElementById('actual');
+const totalCost = document.getElementById('totalCost');
+const serviceCost = document.getElementById('serviceCost');
+const addtnlCost = document.getElementById('additionalCostValue');
+const toggleYes = document.getElementById('Yes');
+const toggleNo = document.getElementById('No');
+const toggleYess = document.getElementById('Yess');
+const toggleNoo = document.getElementById('Noo');
+const activeHours = document.getElementById('activeHours');
+const ELBPrice = document.getElementById('ELBPrice');
+const EKSPrice = document.getElementById('EKSPrice');
+let radio1 = document.getElementById("radio1");
+let radio2 = document.getElementById("radio2");
+let radio3 = document.getElementById("radioo3");
+let radio4 = document.getElementById("radioo4");
+let calculateCost;
+
+const instanceTypes = getData('./spot.json').then((response) => {
+  appendMasterNodeData(response);
+  appendWorkerNodeData(response);
+  masterNode.addEventListener('change', () => {
+    if (masterNode.value !== 'select') {
+      const price = costCalculator(response, masterNode.value);
+      costValue.innerHTML = price;
+      masterNodePriceEl.innerHTML = (
+        Number(price) * Number(activeHours.value)
+        + 0.0912 * Number(nodeDiskEl.value)
+      ).toFixed(4);
+    } else {
+      costValue.innerHTML = '';
+      masterNodePriceEl.innerHTML = '';
+    }
+  });
+
+  nodeDiskEl.addEventListener('input', (price) => {
+    const prices = costCalculator(response, masterNode.value);
+    if (nodeDiskEl.value) {
+      masterNodePriceEl.innerHTML = (Number(prices) * Number(activeHours.value) + 0.0912 * Number(nodeDiskEl.value)).toFixed(4);
+    } else {
+      masterNodePriceEl.innerHTML = '';
+    }
+  });
+
+  nodeDiskInGBEl.addEventListener('input', (price) => {
+    const prices = costCalculator(response, workerNode.value);
+    if (nodeDiskInGBEl.value) {
+      workerNodePriceEl.innerHTML = (Number(prices) * Number(activeHours.value) + 0.0912 * Number(nodeDiskInGBEl.value)).toFixed(4);
+    } else {
+      workerNodePriceEl.innerHTML = '';
+    }
+  });
+
+  workerNode.addEventListener('change', () => {
+    if (workerNode.value !== 'select') {
+      const price = costCalculator(response, workerNode.value);
+
+      workerNodeCost.innerHTML = price;
+      workerNodePriceEl.innerHTML = (Number(price) * Number(activeHours.value) + 0.0912 * Number(nodeDiskInGBEl.value)).toFixed(4);
+      totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
+
+
+    } else {
+      workerNodeCost.innerHTML = '';
+      workerNodePriceEl.innerHTML = "";
+    }
+  });
+
+  // storageClass.addEventListener('change', () => {
+  //   if (!storageClass.selected) {
+  //     additionalStorageCost.innerHTML  = `$ ${storageClass.value *(dbStorageForCT.value +(noOfSvcs.value * dbStoragePerMicrSvc.value))}`;
+  //     // console.log(dbStorageForCT.value)
+  //   }
+  //   if(storageClass.selected == 'select'){
+  //     storageClassCost.innerHTML = '';
+  //     additionalStorageCost.innerHTML  = ''
+  //   }
+  
+  // });
+  dbStorageForCT.addEventListener('input',()=>{
+    additionalStorageCost.innerHTML  = (Number(storageClass.value) *(Number(dbStorageForCT.value) +(Number(noOfSVC.value) * Number(dbStoragePerMicrSvc.value)))).toFixed(4);
+    totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
+    })
+
+    dbStoragePerMicrSvc.addEventListener('input',()=>{
+      additionalStorageCost.innerHTML  = (Number(storageClass.value) *(Number(dbStorageForCT.value) +(Number(noOfSVC.value) * Number(dbStoragePerMicrSvc.value)))).toFixed(4);
+      totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
+      
+    })
+  noOfSVC.addEventListener('input',()=>{
+      
+    additionalStorageCost.innerHTML  = (Number(storageClass.value) *(Number(dbStorageForCT.value) +(Number(noOfSVC.value) * Number(dbStoragePerMicrSvc.value)))).toFixed(4);
+      noOfWorkerNodesRq.innerHTML = Math.round(noOfSVC.value/actual.value).toFixed(1)
+      totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
+    })
+
+activeHours.addEventListener('input',()=>{
+  masterNodePriceEl.innerHTML = (
+        Number(price) * Number(activeHours.value)
+        + Number(storageClass.value) * Number(nodeDiskEl.value)
+      ).toFixed(4);
+
+      workerNodePriceEl.innerHTML = ((Number(workerNodePrice) * Number(activeHours.value)) + (Number(storageClass.value) * Number(nodeDiskInGBEl.value))).toFixed(4);
+
+})
+
+
+    actual.addEventListener('input',()=>{
+      noOfWorkerNodesRq.innerHTML = Math.round(noOfSVC.value/actual.value).toFixed(1)
+      totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
+
+
+    })
+
+
+radio1.addEventListener('click',()=>{
+  ELBPrice.innerHTML = 0
+addtnlCost.innerHTML = Number(addtnlCost.textContent) - 25.0000
+totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
+serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
+
+})
+radio2.addEventListener('click',()=>{
+  ELBPrice.innerHTML = (25.0000).toFixed(4)
+  addtnlCost.innerHTML = Number(addtnlCost.textContent) +  25.0000
+totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
+
+  serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
+
+})
+
+radio3.addEventListener('click',()=>{
+  EKSPrice.innerHTML = 0
+  addtnlCost.innerHTML = (Number(addtnlCost.textContent) - 72.0000).toFixed(4)
+totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
+serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
+
+
+})
+radio4.addEventListener('click',()=>{
+  EKSPrice.innerHTML = (72.0000).toFixed(4)
+  addtnlCost.innerHTML = (Number(addtnlCost.textContent) + 72.0000).toFixed(4)
+totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
+serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
+
+})
+
+    const price = costCalculator(response, masterNode.value);
+    const workerNodePrice = costCalculator(response,workerNode.value);
+      costValue.innerHTML = price;
+      workerNodeCost.innerHTML = workerNodePrice;
+
+      activeHours.innerHTML = Number(activeHours.value)
+      storageClassCost.innerHTML = Number(storageClass.value);
+
+      masterNodePriceEl.innerHTML = (
+        Number(price) * Number(activeHours.value)
+        + Number(storageClass.value) * Number(nodeDiskEl.value)
+      ).toFixed(4);
+
+      workerNodePriceEl.innerHTML = ((Number(workerNodePrice) * Number(activeHours.value)) + (Number(storageClass.value) * Number(nodeDiskInGBEl.value))).toFixed(4);
+      additionalStorageCost.innerHTML  = (Number(storageClass.value) *(Number(dbStorageForCT.value) +(Number(noOfSVC.value) * Number(dbStoragePerMicrSvc.value)))).toFixed(4);
+      noOfWorkerNodesRq.innerHTML = Math.round(noOfSVC.value/actual.value).toFixed(1);
+// console.log(masterNodePriceEl.textContent,noOfWorkerNodesRq.textContent,workerNodePriceEl.textContent,additionalStorageCost.textContent)
+      totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
+      // +(noOfWorkerNodesRq.textContent * workerNodePriceEl.textContent)+1+additionalStorageCost.textContent).toFixed(4)
+      serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
+
+    });465.12
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>

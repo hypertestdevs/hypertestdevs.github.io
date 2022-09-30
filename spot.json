@@ -1,0 +1,386 @@
+[
+    {
+        "region": "us-east",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "0.0927"
+        }
+    },
+    {
+        "region": "us-east",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "0.0124"
+        }
+    },
+    {
+        "region": "us-east-2",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "0.1025"
+        }
+    },
+    {
+        "region": "us-east-2",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "0.0113"
+        }
+    },
+    {
+        "region": "us-west-2",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "0.0902"
+        }
+    },
+    {
+        "region": "us-west-2",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "0.0113"
+        }
+    },
+    {
+        "region": "us-west-2-lax-1a",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "N/A*"
+        }
+    },
+    {
+        "region": "us-west-2-lax-1a",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "N/A*"
+        }
+    },
+    {
+        "region": "us-west",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "0.1071"
+        }
+    },
+    {
+        "region": "us-west",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "0.0138"
+        }
+    },
+    {
+        "region": "ca-central-1",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "0.1002"
+        }
+    },
+    {
+        "region": "ca-central-1",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "0.0125"
+        }
+    },
+    {
+        "region": "eu-ireland",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "0.1389"
+        }
+    },
+    {
+        "region": "eu-ireland",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "0.0135"
+        }
+    },
+    {
+        "region": "eu-central-1",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "0.1388"
+        }
+    },
+    {
+        "region": "eu-central-1",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "0.0142"
+        }
+    },
+    {
+        "region": "eu-west-2",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "0.1019"
+        }
+    },
+    {
+        "region": "eu-west-2",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "0.0128"
+        }
+    },
+    {
+        "region": "eu-west-3",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "0.1019"
+        }
+    },
+    {
+        "region": "eu-west-3",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "0.0128"
+        }
+    },
+    {
+        "region": "eu-north-1",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "N/A*"
+        }
+    },
+    {
+        "region": "eu-north-1",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "N/A*"
+        }
+    },
+    {
+        "region": "apac-sin",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "0.1201"
+        }
+    },
+    {
+        "region": "apac-sin",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "0.0142"
+        }
+    },
+    {
+        "region": "apac-syd",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "0.1234"
+        }
+    },
+    {
+        "region": "apac-syd",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "0.0143"
+        }
+    },
+    {
+        "region": "apac-tokyo",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "0.1175"
+        }
+    },
+    {
+        "region": "apac-tokyo",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "0.0147"
+        }
+    },
+    {
+        "region": "ap-northeast-2",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "0.1123"
+        }
+    },
+    {
+        "region": "ap-northeast-2",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "0.014"
+        }
+    },
+    {
+        "region": "ap-northeast-3",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "N/A*"
+        }
+    },
+    {
+        "region": "ap-northeast-3",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "N/A*"
+        }
+    },
+    {
+        "region": "ap-south-1",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "0.0591"
+        }
+    },
+    {
+        "region": "ap-south-1",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "0.0076"
+        }
+    },
+    {
+        "region": "sa-east-1",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "0.1451"
+        }
+    },
+    {
+        "region": "sa-east-1",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "0.0182"
+        }
+    },
+    {
+        "region": "ap-east-1",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "N/A*"
+        }
+    },
+    {
+        "region": "ap-east-1",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "N/A*"
+        }
+    },
+    {
+        "region": "me-south-1",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "N/A*"
+        }
+    },
+    {
+        "region": "me-south-1",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "N/A*"
+        }
+    },
+    {
+        "region": "af-south-1",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "N/A*"
+        }
+    },
+    {
+        "region": "af-south-1",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "N/A*"
+        }
+    },
+    {
+        "region": "eu-south-1",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "0.1035"
+        }
+    },
+    {
+        "region": "eu-south-1",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "0.0129"
+        }
+    },
+    {
+        "region": "ap-southeast-3",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "N/A*"
+        }
+    },
+    {
+        "region": "ap-southeast-3",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "N/A*"
+        }
+    },
+    {
+        "region": "me-central-1",
+        "size": "t3a.2xlarge",
+        "name": "linux",
+        "prices": {
+            "USD": "N/A*"
+        }
+    },
+    {
+        "region": "me-central-1",
+        "size": "t3a.medium",
+        "name": "linux",
+        "prices": {
+            "USD": "N/A*"
+        }
+    }
+]

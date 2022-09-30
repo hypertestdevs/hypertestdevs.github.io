@@ -1,0 +1,167 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+.container h2 {
+  text-align: center;
+}
+.nodes_div {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  justify-content: space-between;
+}
+
+/* // -------------------------------------------------- */
+
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding: 0 1em;
+  background-color: var(--darkgray);
+  background-image: none;
+  cursor: pointer;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select wrapper */
+.select {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  border-radius: 0.25em;
+  overflow: hidden;
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: #34495e;
+  transition: 0.25s all ease;
+  pointer-events: none;
+}
+/* Transition */
+.select:hover::after {
+  color: #f39c12;
+}
+#masterNodeCost {
+  margin-left: 193%;
+}
+#storageClassCost {
+  margin-left: 193%;
+}
+#workerNodeCost {
+  margin-left: 193%;
+}
+.parentForCostsDivs {
+  display: flex;
+  padding: 10px;
+}
+.parentForWorkerNodeCostsDivs {
+  display: flex;
+  padding: 10px;
+}
+.maserNodeDIV {
+  padding: 10px;
+}
+.workerNodeDIV {
+  padding: 10px;
+}
+.masterNodeDivChild {
+  display: flex;
+  padding: 10px;
+}
+.workerNodeDivChild {
+  display: flex;
+  padding: 10px;
+}
+.instanceTypesDiv > p {
+  margin-right: 100px;
+  padding: 10px;
+}
+.masterNodeParent {
+  display: flex;
+  border: 1px solid rgb(219, 217, 217);
+}
+.workerNodeParent {
+  display: flex;
+  border: 1px solid rgb(219, 217, 217);
+}
+.mainDiv {
+  border: 1px solid rgb(219, 217, 217);
+
+  width: 70%;
+  margin: 0 auto;
+  padding: 10px;
+}
+.masterNodeCostDiv {
+  display: flex;
+  /* border: 1px solid rgb(219, 217, 217); */
+  padding: 10px;
+  width: 47.8%;
+}
+.masterNodeTotalCostTitle {
+  padding: 10px;
+}
+.workerNodeCostDiv {
+  display: flex;
+  /* border: 1px solid rgb(219, 217, 217); */
+  padding: 10px;
+  width: 47.8%;
+}
+.workerNodeTotalCostTitle {
+  width: 50%;
+  padding: 10px;
+}
+#masterNodeTotalCostValue {
+  padding: 10px;
+  margin-left: 70%;
+}
+#workerNodeTotalCostValue {
+  padding: 10px;
+  margin-left: 70%;
+}
+.servicesConfigDiv {
+  display: flex;
+}
+.servicesPerNodeDiv {
+  margin-left: 100px;
+}
+#additionalStorageCostForDbs {
+  margin-left: 56%;
+}
+#noOfWorkerNodesRq {
+  margin-left: 64%;
+}
+#additionalCostValue {
+  margin-left: 74%;
+}
+#serviceCost {
+  margin-left: 74%;
+}
+#totalCost {
+  margin-left: 74%;
+}
+#IfExstingLoadBalancer {
+  display: flex;
+}
+#IfEKSCluster{
+  display: flex;
+}
+#EKSPrice{
+  margin-left:74%;
+}
+#ELBPrice{
+  margin-left:74%;
+ 
+}
