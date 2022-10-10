@@ -47,22 +47,7 @@
             "USD": "0.0113"
         }
     },
-    {
-        "region": "us-west-2-lax-1a",
-        "size": "t3a.2xlarge",
-        "name": "linux",
-        "prices": {
-            "USD": "N/A*"
-        }
-    },
-    {
-        "region": "us-west-2-lax-1a",
-        "size": "t3a.medium",
-        "name": "linux",
-        "prices": {
-            "USD": "N/A*"
-        }
-    },
+
     {
         "region": "us-west",
         "size": "t3a.2xlarge",
@@ -159,22 +144,7 @@
             "USD": "0.0128"
         }
     },
-    {
-        "region": "eu-north-1",
-        "size": "t3a.2xlarge",
-        "name": "linux",
-        "prices": {
-            "USD": "N/A*"
-        }
-    },
-    {
-        "region": "eu-north-1",
-        "size": "t3a.medium",
-        "name": "linux",
-        "prices": {
-            "USD": "N/A*"
-        }
-    },
+
     {
         "region": "apac-sin",
         "size": "t3a.2xlarge",
@@ -288,54 +258,6 @@
         }
     },
     {
-        "region": "ap-east-1",
-        "size": "t3a.2xlarge",
-        "name": "linux",
-        "prices": {
-            "USD": "N/A*"
-        }
-    },
-    {
-        "region": "ap-east-1",
-        "size": "t3a.medium",
-        "name": "linux",
-        "prices": {
-            "USD": "N/A*"
-        }
-    },
-    {
-        "region": "me-south-1",
-        "size": "t3a.2xlarge",
-        "name": "linux",
-        "prices": {
-            "USD": "N/A*"
-        }
-    },
-    {
-        "region": "me-south-1",
-        "size": "t3a.medium",
-        "name": "linux",
-        "prices": {
-            "USD": "N/A*"
-        }
-    },
-    {
-        "region": "af-south-1",
-        "size": "t3a.2xlarge",
-        "name": "linux",
-        "prices": {
-            "USD": "N/A*"
-        }
-    },
-    {
-        "region": "af-south-1",
-        "size": "t3a.medium",
-        "name": "linux",
-        "prices": {
-            "USD": "N/A*"
-        }
-    },
-    {
         "region": "eu-south-1",
         "size": "t3a.2xlarge",
         "name": "linux",
@@ -349,38 +271,6 @@
         "name": "linux",
         "prices": {
             "USD": "0.0129"
-        }
-    },
-    {
-        "region": "ap-southeast-3",
-        "size": "t3a.2xlarge",
-        "name": "linux",
-        "prices": {
-            "USD": "N/A*"
-        }
-    },
-    {
-        "region": "ap-southeast-3",
-        "size": "t3a.medium",
-        "name": "linux",
-        "prices": {
-            "USD": "N/A*"
-        }
-    },
-    {
-        "region": "me-central-1",
-        "size": "t3a.2xlarge",
-        "name": "linux",
-        "prices": {
-            "USD": "N/A*"
-        }
-    },
-    {
-        "region": "me-central-1",
-        "size": "t3a.medium",
-        "name": "linux",
-        "prices": {
-            "USD": "N/A*"
         }
     }
 ]

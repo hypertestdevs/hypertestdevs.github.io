@@ -5,53 +5,75 @@ async function getData(url) {
     let data = await res.json()
     return data;
 }
-function appendMasterNodeData(data) {
-    let masterNode = document.getElementById('masterNode');
+
+function appendRegionData(data){
+    let selectRegion = document.getElementById('selectRegion');
 
     let flag = true;
+    let currRegion = '';
     data.forEach((instType) => {
         let option = document.createElement('option');
-        option.value = `${instType.size}_${instType.region}`;
+        if(instType.region !== currRegion){
+            currRegion = instType.region;
+            option.value = instType.region;
+            option.textContent = instType.region;
+            selectRegion.appendChild(option);
+
+    }
         if (flag) {
             option.setAttribute('selected', true)
-  
             flag = !flag;
         }
 
-        option.textContent = `${instType.size}-${instType.region}`;
+    });
+}
+function appendMasterNodeData(data,region) {
+    let masterNode = document.getElementById('masterNode');
+    let flag = true;
+    masterNode.innerHTML = "";
+    let dataWithSelectedRegion = data.filter((el)=>el.region == region && el.size === 't3a.medium')
+    dataWithSelectedRegion.forEach((instType) => {
+        let option = document.createElement('option');
+        option.value = instType.size;
+        option.textContent = instType.size;
         masterNode.appendChild(option);
+        if (flag) {
+            option.setAttribute('selected', true)
+            flag = !flag;
+        }
+
     });
 
 }
-function appendWorkerNodeData(data) {
+function appendWorkerNodeData(data,region) {
     let workerNodeInstanceType = document.getElementById('workerNode');
     let flag = true;
+    workerNodeInstanceType.innerHTML = ""
 
-    data.forEach((instType) => {
+    let dataWithSelectedRegion = data.filter((el)=>el.region == region && el.size === 't3a.2xlarge')
+    dataWithSelectedRegion.forEach((instType) => {
         let option = document.createElement('option');
-        option.value = `${instType.size}_${instType.region}`;
+        option.value = instType.size;
+        option.textContent = instType.size;
+        workerNodeInstanceType.appendChild(option);
         if (flag) {
             option.setAttribute('selected', true)
             flag = !flag;
         }
-        option.textContent = `${instType.size}-${instType.region}`;
-        workerNodeInstanceType.appendChild(option);
     });
 }
-function costCalculator(data, size) {
-    let [currSize, region] = size.split('_');
-    // size = size[1].concat(`-${size[2]}`
-    // console.log(currSize, region)
+function costCalculator(data, size,region) {
+
     let price;
     let dataWithPrice = data.forEach((el) => {
-        if (el.size === currSize && el.region === region) {
+        if (el.size === size && el.region == region ) {
             price = el.prices
         }
     });
-    
-    return price.USD;
+    // console.log(price.USD)
+    return price.USD;   
 
 }
 
 
-export { getData, appendMasterNodeData, appendWorkerNodeData, costCalculator };
+export { getData, appendMasterNodeData, appendWorkerNodeData, costCalculator, appendRegionData };
