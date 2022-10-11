@@ -107,7 +107,7 @@ select::-ms-expand {
 }
 .masterNodeCostDiv {
   display: flex;
-/*   border: 1px solid rgb(219, 217, 217); */
+  /* border: 1px solid rgb(219, 217, 217); */
   padding: 10px;
   width: 50.5%;
   flex-direction: row;
@@ -120,7 +120,7 @@ select::-ms-expand {
   display: flex;
   /* border: 1px solid rgb(219, 217, 217); */
   padding: 10px;
-  width: 55%;
+  width: 50.5%;
   flex-direction: row;
 	justify-content: space-between;
 
@@ -182,8 +182,8 @@ select::-ms-expand {
   margin-left: 74%;
 }
 .master_and_worker_node_cost_div {
-  display: flex;
   font-size:15px;
+  clear:right;
 }
 .select{
   margin-left:10px;

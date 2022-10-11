@@ -202,6 +202,26 @@
             
             </div>
           </div>
+          <div style="padding:10px;">
+            <div>Do you have an Existing Load Balancer ?  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+            <div id="IfExstingLoadBalancer">
+              
+              <div>
+                    <div class="selecotr-item">
+                        <input type="radio" id="radio1" name="selector" class="selector-item_radio" checked>
+                        <label for="radio1" class="selector-item_label">Yes</label>&nbsp; &nbsp; &nbsp; 
+                        <input type="radio" id="radio2" name="selector" class="selector-item_radio">
+                        <label for="radio2" class="selector-item_label">No &nbsp; </label>
+                    </div>
+                  </div>
+                  <div id="ELBPrice">
+                      0.0000
+                  </div>
+        
+                
+          
+             </div>
+          </div>
       
           <br />
           <div style="padding:10px;">
@@ -223,35 +243,16 @@
         <div style="width:60%;font-size:15px;">
           <div class="servicesPerNodeDiv">
             <div class="mb-2">
-              <label class="form-label">actual :</label>
+              <label class="form-label">actual (services on 1 worker node):</label>
               <input class="form-control" type="number" id="actual" value = "12" required/>
             </div>
           </div>
-          <div style="padding:10px;">
-            <div>Do you have an Existing Load Balancer ?  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
-            <div id="IfExstingLoadBalancer">
-              
-              <div>
-                    <div class="selecotr-item">
-                        <input type="radio" id="radio1" name="selector" class="selector-item_radio" checked>
-                        <label for="radio1" class="selector-item_label">Yes</label>&nbsp; &nbsp; &nbsp; 
-                        <input type="radio" id="radio2" name="selector" class="selector-item_radio">
-                        <label for="radio2" class="selector-item_label">No &nbsp; &nbsp; </label>
-                    </div>
-                  </div>
-                  <div id="ELBPrice">
-                      0.0000
-                  </div>
-        
-                
-          
-             </div>
-          </div>
+
           <div style="display: flex;padding:10px;">
             <div>No. of worker nodes required</div>
             <div id="noOfWorkerNodesRq"></div>
           </div>
-          <div style="display: flex;padding:10px;">
+          <div style="display: flex;padding:10px;margin-top:210px;">
             <div>Per Service Cost (annual)</div>
             <div  id="serviceCostAnnual"></div>
           </div>
