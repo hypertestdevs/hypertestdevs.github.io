@@ -95,6 +95,7 @@ select::-ms-expand {
 }
 .workerNodeParent {
   display: flex;
+
   border: 1px solid rgb(219, 217, 217);
 }
 .mainDiv {
@@ -106,9 +107,11 @@ select::-ms-expand {
 }
 .masterNodeCostDiv {
   display: flex;
-  /* border: 1px solid rgb(219, 217, 217); */
+  border: 1px solid rgb(219, 217, 217);
   padding: 10px;
-  width: 47.8%;
+  width: 50.5%;
+  flex-direction: row;
+	justify-content: space-between;
 }
 .masterNodeTotalCostTitle {
   padding: 10px;
@@ -117,25 +120,33 @@ select::-ms-expand {
   display: flex;
   /* border: 1px solid rgb(219, 217, 217); */
   padding: 10px;
-  width: 47.8%;
+  width: 55%;
+  flex-direction: row;
+	justify-content: space-between;
+
+
 }
 .workerNodeTotalCostTitle {
-  width: 50%;
+  /* border:1px solid black; */
   padding: 10px;
+}
+
+#workerNodeTotalCostValue { 
+  padding: 10px;
+  /* border:1px solid black;  */
+
 }
 #masterNodeTotalCostValue {
   padding: 10px;
-  margin-left: 70%;
 }
-#workerNodeTotalCostValue {
-  padding: 10px;
-  margin-left: 70%;
-}
+
 .servicesConfigDiv {
   display: flex;
+  font-size:15px;
 }
 .servicesPerNodeDiv {
-  margin-left: 100px;
+  margin-top: 10px;
+  width:40%;
 }
 #additionalStorageCostForDbs {
   margin-left: 56%;
@@ -144,7 +155,7 @@ select::-ms-expand {
   margin-left: 64%;
 }
 #additionalCostValue {
-  margin-left: 74%;
+  margin-left: 92%;
 }
 #serviceCost {
   margin-left: 74%;
@@ -155,21 +166,25 @@ select::-ms-expand {
 #IfExstingLoadBalancer {
   display: flex;
 }
-#IfEKSCluster{
+#IfEKSCluster {
   display: flex;
 }
-#EKSPrice{
-  margin-left:74%;
-}
-#ELBPrice{
-  margin-left:74%;
- 
-}
-#serviceCostAnnual{
+#EKSPrice {
   margin-left: 74%;
-
 }
-#totalCostAnnual{
+#ELBPrice {
   margin-left: 74%;
-
+}
+#serviceCostAnnual {
+  margin-left: 74%;
+}
+#totalCostAnnual {
+  margin-left: 74%;
+}
+.master_and_worker_node_cost_div {
+  display: flex;
+  font-size:15px;
+}
+.select{
+  margin-left:10px;
 }

@@ -209,22 +209,7 @@
             "USD": "0.014"
         }
     },
-    {
-        "region": "ap-northeast-3",
-        "size": "t3a.2xlarge",
-        "name": "linux",
-        "prices": {
-            "USD": "N/A*"
-        }
-    },
-    {
-        "region": "ap-northeast-3",
-        "size": "t3a.medium",
-        "name": "linux",
-        "prices": {
-            "USD": "N/A*"
-        }
-    },
+
     {
         "region": "ap-south-1",
         "size": "t3a.2xlarge",

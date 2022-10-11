@@ -23,7 +23,7 @@
     max="720"
     required
   /> </h5>
-  <div style="display:flex;margin:10px;">
+  <div style="display:flex;">
   <div class="regionDiv">
     <p>Select Region :</p>
   </div>
@@ -174,8 +174,8 @@
     </div>
     <div>
       <div class="servicesConfigDiv">
-        <div style="padding:10px;width:48%;">
-          <div class="mb-2">
+        <div style="padding:10px;width:58%;">
+          <div class="mb-2" style="width:50%;">
             <label class="form-label">Enter number of Services:</label>
             <input class="form-control" type="number" id="noOfSVCs" value="10" required/>
           </div>
@@ -183,10 +183,7 @@
             <div>Additional Storage cost for DBs</div>
             <div id="additionalStorageCostForDbs"></div>
           </div>
-          <div style="display: flex;padding:10px;">
-            <div>No. of worker nodes required</div>
-            <div id="noOfWorkerNodesRq"></div>
-          </div>
+    
           <div style="padding:10px;">
             <div>Do you already use a EKS cluster ?</div>
             <div id="IfEKSCluster"> 
@@ -195,7 +192,7 @@
                     <input type="radio" id="radioo3" name="selectorr" class="selector-item_radio" checked>
                     <label for="radioo3" class="selector-item_label">Yes</label>&nbsp; &nbsp; &nbsp; 
                     <input type="radio" id="radioo4" name="selectorr" class="selector-item_radio">
-                    <label for="radioo4" class="selector-item_label">No </label>
+                    <label for="radioo4" class="selector-item_label">No &nbsp;  </label>
                 </div>
               </div>
               <div id="EKSPrice">
@@ -205,26 +202,7 @@
             
             </div>
           </div>
-          <div style="padding:10px;">
-            <div>Do you have an Existing Load Balancer ?  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
-            <div id="IfExstingLoadBalancer">
-              
-              <div>
-                    <div class="selecotr-item">
-                        <input type="radio" id="radio1" name="selector" class="selector-item_radio" checked>
-                        <label for="radio1" class="selector-item_label">Yes</label>&nbsp; &nbsp; &nbsp; 
-                        <input type="radio" id="radio2" name="selector" class="selector-item_radio">
-                        <label for="radio2" class="selector-item_label">No </label>
-                    </div>
-                  </div>
-                  <div id="ELBPrice">
-                      0.0000
-                  </div>
-        
-                
-          
-             </div>
-          </div>
+      
           <br />
           <div style="padding:10px;">
             <div>Additional Cost</div>
@@ -238,7 +216,40 @@
               <div>Total Cost (month)</div>
               <div id="totalCost"></div>
             
-    
+  
+          </div>
+     
+        </div>
+        <div style="width:60%;font-size:15px;">
+          <div class="servicesPerNodeDiv">
+            <div class="mb-2">
+              <label class="form-label">actual :</label>
+              <input class="form-control" type="number" id="actual" value = "12" required/>
+            </div>
+          </div>
+          <div style="padding:10px;">
+            <div>Do you have an Existing Load Balancer ?  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+            <div id="IfExstingLoadBalancer">
+              
+              <div>
+                    <div class="selecotr-item">
+                        <input type="radio" id="radio1" name="selector" class="selector-item_radio" checked>
+                        <label for="radio1" class="selector-item_label">Yes</label>&nbsp; &nbsp; &nbsp; 
+                        <input type="radio" id="radio2" name="selector" class="selector-item_radio">
+                        <label for="radio2" class="selector-item_label">No &nbsp; &nbsp; </label>
+                    </div>
+                  </div>
+                  <div id="ELBPrice">
+                      0.0000
+                  </div>
+        
+                
+          
+             </div>
+          </div>
+          <div style="display: flex;padding:10px;">
+            <div>No. of worker nodes required</div>
+            <div id="noOfWorkerNodesRq"></div>
           </div>
           <div style="display: flex;padding:10px;">
             <div>Per Service Cost (annual)</div>
@@ -249,14 +260,6 @@
               <div id="totalCostAnnual"></div>
             
     
-          </div>
-        </div>
-        <div>
-          <div class="servicesPerNodeDiv">
-            <div class="mb-2">
-              <label class="form-label">actual :</label>
-              <input class="form-control" type="number" id="actual" value = "12" required/>
-            </div>
           </div>
         </div>
       </div>
@@ -429,7 +432,7 @@ const instanceTypes = getData('./spot.json').then((response) => {
   noOfSVC.addEventListener('input',()=>{
       
     additionalStorageCost.innerHTML  = (Number(storageClass.value) *(Number(dbStorageForCT.value) +(Number(noOfSVC.value) * Number(dbStoragePerMicrSvc.value)))).toFixed(4);
-      noOfWorkerNodesRq.innerHTML = Math.round(noOfSVC.value/actual.value).toFixed(1)
+      noOfWorkerNodesRq.innerHTML = Math.ceil(noOfSVC.value/actual.value).toFixed(1)
      totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
       totalCostAnnual.innerHTML = ((Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)) * 12).toFixed(4)
     })
@@ -443,7 +446,7 @@ const instanceTypes = getData('./spot.json').then((response) => {
 
 
 radio1.addEventListener('click',()=>{
-  ELBPrice.innerHTML = 0
+  ELBPrice.innerHTML = 0.0000
 addtnlCost.innerHTML = Number(addtnlCost.textContent) - 25.0000
 totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
 serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
@@ -462,7 +465,7 @@ totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOf
 })
 
 radio3.addEventListener('click',()=>{
-  EKSPrice.innerHTML = 0
+  EKSPrice.innerHTML = 0.0000
   addtnlCost.innerHTML = (Number(addtnlCost.textContent) - 72.0000).toFixed(4)
 totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
 serviceCost.innerHTML = (totalCost.textContent/noOfSVC.value).toFixed(4)
@@ -505,7 +508,7 @@ serviceCostAnnual.innerHTML = ((totalCost.textContent/noOfSVC.value)*12).toFixed
 
       workerNodePriceEl.innerHTML = ((Number(workerNodePrice) * Number(activeHours.value)) + (Number(storageClass.value) * Number(nodeDiskInGBEl.value))).toFixed(4);
       additionalStorageCost.innerHTML  = (Number(storageClass.value) *(Number(dbStorageForCT.value) +(Number(noOfSVC.value) * Number(dbStoragePerMicrSvc.value)))).toFixed(4);
-      noOfWorkerNodesRq.innerHTML = Math.round(noOfSVC.value/actual.value).toFixed(1);
+      noOfWorkerNodesRq.innerHTML = Math.ceil((noOfSVC.value/actual.value)).toFixed(1)
 // console.log(masterNodePriceEl.textContent,noOfWorkerNodesRq.textContent,workerNodePriceEl.textContent,additionalStorageCost.textContent)
       totalCost.innerHTML = (Number(masterNodePriceEl.textContent)+ Number(Number(noOfWorkerNodesRq.textContent) * Number(workerNodePriceEl.textContent))+Number(addtnlCost.textContent)+Number(additionalStorageCost.textContent)).toFixed(4)
       // +(noOfWorkerNodesRq.textContent * workerNodePriceEl.textContent)+1+additionalStorageCost.textContent).toFixed(4)
